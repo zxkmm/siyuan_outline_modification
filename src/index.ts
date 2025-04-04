@@ -405,7 +405,7 @@ export default class SiyuanOutlineCompress extends Plugin {
           "enableOutlineDisplayLevelTune"
         );
 
-        const _enableOutlineDisplayLevelTuneLevel_ = this.settingUtils.get(
+        var _enableOutlineDisplayLevelTuneLevel_ = this.settingUtils.get(
           "enableOutlineDisplayLevelTuneLevel"
         );
 
@@ -534,8 +534,153 @@ export default class SiyuanOutlineCompress extends Plugin {
 
           if (_enableOutlineDisplayLevelTune_) {
             //outline display level tune sel
-            outlineDisplayLevel(
-              _enableOutlineDisplayLevelTuneLevel_);
+            outlineDisplayLevel(_enableOutlineDisplayLevelTuneLevel_);
+
+            // slide ctl
+            const addOutlineLevelSlider = () => {
+              console.log("called adder");
+              // outline
+              const outlineContainer = document.querySelector(
+                ".file-tree.sy__outline"
+              );
+              console.log(outlineContainer);
+              if (!outlineContainer) return;
+
+
+              // prevent multiple slider
+              if (
+                outlineContainer.querySelector(
+                  "#outline-level-slider-container"
+                )
+              )
+                return;
+
+                console.log("added");
+
+          
+
+              // container
+              const sliderContainer = document.createElement("div");
+              sliderContainer.id = "outline-level-slider-container";
+              sliderContainer.style.cssText =
+                "padding: 8px 16px; border-top: 1px solid var(--b3-border-color); text-align: center;";
+
+              // title
+              const sliderTitle = document.createElement("div");
+              sliderTitle.textContent = this.i18n.strOutlineExpandLevel;
+              sliderTitle.style.cssText =
+                "margin-bottom: 4px; font-size: 12px; opacity: 0.8;";
+              sliderContainer.appendChild(sliderTitle);
+
+              // div
+              const sliderControl = document.createElement("div");
+              sliderControl.style.cssText =
+                "display: flex; align-items: center; justify-content: space-between;";
+
+              // add btns
+              for (let i = 0; i <= 7; i++) {
+                console.log(i, _enableOutlineDisplayLevelTuneLevel_);
+                console.log(i.toString(), _enableOutlineDisplayLevelTuneLevel_.toString());
+                console.log(i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString());
+                const levelButton = document.createElement("div");
+                levelButton.textContent = i === 0 ? '∞' : i.toString();
+                levelButton.dataset.level = i.toString();
+                levelButton.style.cssText = `
+                width: 24px; height: 24px; border-radius: 50%; 
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; font-size: 12px; 
+                background-color: ${
+                  i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString()
+                    ? "var(--b3-theme-primary)"
+                    : "var(--b3-theme-surface)"
+                };
+                color: ${
+                  i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString()
+                    ? "#fff"
+                    : "var(--b3-theme-on-surface)"
+                };
+                transition: all 0.2s ease;
+              `;
+                levelButton.addEventListener("click", (e) => {
+                  // btn css
+                  sliderControl.querySelectorAll("div").forEach((btn) => {
+                    btn.style.backgroundColor = "var(--b3-theme-surface)";
+                    btn.style.color = "var(--b3-theme-on-surface)";
+                  });
+
+                  // highlight aft click
+                  levelButton.style.backgroundColor = "var(--b3-theme-primary)";
+                  levelButton.style.color = "#fff";
+
+                  // aapply
+                  const level = parseInt(levelButton.dataset.level || "0");
+                  outlineDisplayLevel(level);
+
+                  // TODO: seperate from setting
+                  _enableOutlineDisplayLevelTuneLevel_ = level;
+
+                  // click expand
+                  setTimeout(() => {
+                    const expandButton = document.querySelector(
+                      'button[data-type="expand"]'
+                    );
+                    if (expandButton) {
+                      (expandButton as HTMLElement).click();
+                    }
+                  }, 100);
+
+                  e.stopPropagation();
+                });
+
+                sliderControl.appendChild(levelButton);
+              }
+
+              sliderContainer.appendChild(sliderControl);
+              outlineContainer.appendChild(sliderContainer);
+            };
+
+            // init once
+            addOutlineLevelSlider();
+
+            // TODO: meed refactor
+            const outlineObserver = new MutationObserver((mutations) => {
+              mutations.forEach((mutation) => {
+                if (
+                  mutation.type === "attributes" &&
+                  mutation.attributeName === "class"
+                ) {
+                  const target = mutation.target as HTMLElement;
+                  if (
+                    target.classList.contains("layout__tab--active") &&
+                    target.classList.contains("sy__outline")
+                  ) {
+                    addOutlineLevelSlider();
+                  }
+                } else if (mutation.type === "childList") {
+                  const outlineContainer = document.querySelector(
+                    ".fn__flex-1.fn__flex-column.file-tree.sy__outline.layout__tab--active"
+                  );
+                  if (
+                    outlineContainer &&
+                    !outlineContainer.querySelector(
+                      "#outline-level-slider-container"
+                    )
+                  ) {
+                    addOutlineLevelSlider();
+                  }
+                }
+              });
+            });
+
+            // TODO: need refactor
+            const layoutPanel = document.querySelector(".layout__center");
+            if (layoutPanel) {
+              outlineObserver.observe(layoutPanel, {
+                attributes: true,
+                childList: true,
+                subtree: true,
+              });
+            }
           }
 
           if (_mouseOverLineUnclamp_) {

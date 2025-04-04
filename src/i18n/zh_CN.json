@@ -1,13 +1,14 @@
 {
   "mainSwitch": "主开关",
 
-  "specialOptionsHintHintTitle": "特色功能",
+  "specialOptionsHintHintTitle": "<hr style='border: none; border-top: 3px solid;'>● 特色功能",
   "specialOptionsHintHintDesc":"",
 
   "enableOutlineDisplayLevelTune":"启用大纲级数显隐设置",
   "enableOutlineDisplayLevelTuneDesc":"启用后你可以选择大纲视图只显示到哪一级",
   "enableOutlineDisplayLevelTuneLevel":"大纲视图显隐分界",
   "enableOutlineDisplayLevelTuneLevelDesc":"设置大纲视图显示到哪一级",
+  "strOutlineExpandLevel": "大纲展开级数",
 
   "enableAdjustStaticoutlinePadding": "启用大纲缩进压缩",
   "enableAdjustStaticoutlinePaddingDesc": "",

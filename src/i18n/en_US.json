@@ -1,13 +1,14 @@
 {
   "mainSwitch": "Main Switch",
 
-  "specialOptionsHintHintTitle": "Special Features",
+  "specialOptionsHintHintTitle": "<hr style='border: none; border-top: 3px solid;'>● Special Features",
   "specialOptionsHintHintDesc": "",
 
   "enableOutlineDisplayLevelTune": "Enable Outline Level Display Settings",
   "enableOutlineDisplayLevelTuneDesc": "When enabled, you can choose which levels to display in the outline view",
   "enableOutlineDisplayLevelTuneLevel": "Outline View Display Level Boundary",
   "enableOutlineDisplayLevelTuneLevelDesc": "Set which level the outline view should display up to",
+  "strOutlineExpandLevel": "Outline Expand Level",
 
   "enableAdjustStaticoutlinePadding": "Enable Compress outline Padding",
   "enableAdjustStaticoutlinePaddingDesc": "Enable Compress outline Padding",

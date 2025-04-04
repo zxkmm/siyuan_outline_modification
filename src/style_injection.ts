@@ -1,5 +1,9 @@
 /******* injections with construct helpers */
-export function outlineDisplayLevel(_displayLevel_){
+export function outlineDisplayLevel(_displayLevel_) {
+  // First, remove previous display level styles
+  const previousStyles = document.querySelectorAll('style[data-outline-display-level]');
+  previousStyles.forEach(style => style.remove());
+  
   let css = '';
   
   if (_displayLevel_ > 0) {
@@ -21,9 +25,13 @@ export function outlineDisplayLevel(_displayLevel_){
         display: none;
       }
     `;
+    
+    const head = document.head || document.getElementsByTagName("head")[0];
+    const style = document.createElement("style");
+    style.setAttribute('data-outline-display-level', _displayLevel_);
+    head.appendChild(style);
+    style.appendChild(document.createTextNode(css));
   }
-  
-  applyStyles(css);
 }
 
 
@@ -326,7 +334,6 @@ export function addFrontLine(
 }
 
 export function mouseOverZeroPadding(_force_, _px_, _style_) {
-  console.log("abcabc");
   switch (_style_) {
     case "1":
       const css_padding_toggle = _force_
@@ -495,7 +502,6 @@ export function mouseOverZeroPadding(_force_, _px_, _style_) {
 
 /******** helpers ***********/
 export function applyStyles(css) {
-  console.log(css);
   const head = document.head || document.getElementsByTagName("head")[0];
   const style = document.createElement("style");
   head.appendChild(style);
