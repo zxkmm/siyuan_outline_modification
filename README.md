@@ -1,4 +1,4 @@
-# Document Tree Compression
+# Outline Compression
 ## Features
  - Custom indentation of (sub)document items in the document tree
  - Customization of whether to hide document item icons in the document tree
