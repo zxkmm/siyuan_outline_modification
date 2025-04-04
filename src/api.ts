@@ -6,7 +6,7 @@
  * API 文档见 [API_zh_CN.md](https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md)
  */
 
-import { fetchPost, fetchSyncPost, IWebSocketData } from "siyuan";
+import { fetchSyncPost, IWebSocketData } from "siyuan";
 
 
 export async function request(url: string, data: any) {
@@ -328,34 +328,13 @@ export async function getFile(path: string): Promise<any> {
         path: path
     }
     let url = '/api/file/getFile';
-    return new Promise((resolve, _) => {
-        fetchPost(url, data, (content: any) => {
-            resolve(content)
-        });
-    });
-}
-
-
-/**
- * fetchPost will secretly convert data into json, this func merely return Blob
- * @param endpoint 
- * @returns 
- */
-export const getFileBlob = async (path: string): Promise<Blob | null> => {
-    const endpoint = '/api/file/getFile'
-    let response = await fetch(endpoint, {
-        method: 'POST',
-        body: JSON.stringify({
-            path: path
-        })
-    });
-    if (!response.ok) {
+    try {
+        let file = await fetchSyncPost(url, data);
+        return file;
+    } catch (error_msg) {
         return null;
     }
-    let data = await response.blob();
-    return data;
 }
-
 
 export async function putFile(path: string, isDir: boolean, file: any) {
     let form = new FormData();

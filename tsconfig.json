@@ -47,8 +47,7 @@
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.tsx",
-        "src/**/*.vue",
-        "src/**/*.svelte"
+        "src/**/*.vue"
     ],
     "references": [
         {

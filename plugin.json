@@ -1,32 +1,30 @@
 {
-  "name": "plugin-sample-vite-svelte",
-  "author": "frostime",
-  "url": "https://github.com/siyuan-note/plugin-sample-vite-svelte",
-  "version": "0.3.6",
-  "minAppVersion": "3.0.12",
+  "name": "siyuan_outline_compress",
+  "author": "zxkmm",
+  "url": "https://github.com/zxkmm/siyuan_outline_compress",
+  "version": "0.4.3",
+  "minAppVersion": "2.12.1",
   "backends": [
     "windows",
     "linux",
     "darwin",
-    "ios",
     "android",
-    "harmony",
-    "docker"
+    "ios",
+    "docker",
+    "harmony"
   ],
   "frontends": [
     "desktop",
-    "mobile",
     "browser-desktop",
-    "browser-mobile",
     "desktop-window"
   ],
   "displayName": {
-    "en_US": "Plugin sample with vite and svelte",
-    "zh_CN": "插件样例 vite + svelte 版"
+    "en_US": "outline modify",
+    "zh_CN": "大纲自定义"
   },
   "description": {
-    "en_US": "SiYuan plugin sample with vite and svelte",
-    "zh_CN": "使用 vite 和 svelte 开发的思源插件样例"
+    "en_US": "(outline compress) provides up to 12 functions, including flow layout/ indentation adjustment/ hide bubble/ shield button/ font size/ mouse hover, etc., to completely customize your document tree",
+    "zh_CN": "（大纲压缩）提供多达20余项功能，包括 流动布局/ 缩进调节/ 隐藏气泡/ 屏蔽按钮/ 字体大小/ 鼠标悬浮/ 层级竖线/ 分割线/ 等等，完全自定义您的大纲"
   },
   "readme": {
     "en_US": "README.md",
@@ -34,12 +32,10 @@
   },
   "funding": {
     "custom": [
-      ""
+      "https://pipe.b3log.org/blogs/zxkmm/articles/2025/02/08/1738993480704"
     ]
   },
   "keywords": [
-    "plugin",
-    "sample",
-    "插件样例"
+    "大纲", "压缩", "自定义", "compress", "outline", "modify", "zxkmm", "大纲压缩", "大纲自定义", "siyuan_outline_compress"
   ]
 }
