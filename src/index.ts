@@ -523,6 +523,7 @@ export default class SiyuanOutlineCompress extends Plugin {
           }
 
           if (_mouseoverZeroPadding_) {
+            console.log("mouseoverZeroPadding");
             //TODO: 希望能更优雅一些。。。
 
             mouseOverZeroPadding(
@@ -579,9 +580,9 @@ export default class SiyuanOutlineCompress extends Plugin {
 
               // add btns
               for (let i = 0; i <= 7; i++) {
-                console.log(i, _enableOutlineDisplayLevelTuneLevel_);
-                console.log(i.toString(), _enableOutlineDisplayLevelTuneLevel_.toString());
-                console.log(i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString());
+                // console.log(i, _enableOutlineDisplayLevelTuneLevel_);
+                // console.log(i.toString(), _enableOutlineDisplayLevelTuneLevel_.toString());
+                // console.log(i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString());
                 const levelButton = document.createElement("div");
                 levelButton.textContent = i === 0 ? '∞' : i.toString();
                 levelButton.dataset.level = i.toString();
@@ -708,7 +709,7 @@ export default class SiyuanOutlineCompress extends Plugin {
 
           if (
             _enableoutlineFrontLine_ &&
-            // !_mouseoverZeroPadding_ &&
+            !_mouseoverZeroPadding_ &&
             !_enableAdjustStaticoutlinePadding_
           ) {
             addFrontLine(
@@ -769,7 +770,7 @@ export default class SiyuanOutlineCompress extends Plugin {
         }
       } catch (error) {
         console.error(
-          "siyuan_outline_compress: failed inject interface",
+          "siyuan_outline_modification: failed inject interface",
           error
         );
       }

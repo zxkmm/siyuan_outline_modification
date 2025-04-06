@@ -1,43 +1,42 @@
 /******* injections with construct helpers */
 export function outlineDisplayLevel(_displayLevel_) {
   // First, remove previous display level styles
-  const previousStyles = document.querySelectorAll('style[data-outline-display-level]');
-  previousStyles.forEach(style => style.remove());
-  
-  let css = '';
-  
+  const previousStyles = document.querySelectorAll(
+    "style[data-outline-display-level]"
+  );
+  previousStyles.forEach((style) => style.remove());
+
+  let css = "";
+
   if (_displayLevel_ > 0) {
     let selectors = [];
-    
+
     for (let i = _displayLevel_; i <= 20; i++) {
-      let nestedSelector = 'div.sy__outline .b3-list';
+      let nestedSelector = "div.sy__outline .b3-list";
       for (let j = 0; j < i; j++) {
-        nestedSelector += ' > .b3-list-item + ul';
+        nestedSelector += " > .b3-list-item + ul";
       }
-      nestedSelector += ' > .b3-list-item';
+      nestedSelector += " > .b3-list-item";
       selectors.push(nestedSelector);
-      
+
       selectors.push(`${nestedSelector} + ul`);
     }
-    
+
     css = `
-      ${selectors.join(',\n')} {
+      ${selectors.join(",\n")} {
         display: none;
       }
     `;
-    
+
     const head = document.head || document.getElementsByTagName("head")[0];
     const style = document.createElement("style");
-    style.setAttribute('data-outline-display-level', _displayLevel_);
+    style.setAttribute("data-outline-display-level", _displayLevel_);
     head.appendChild(style);
     style.appendChild(document.createTextNode(css));
   }
 }
 
-
 /******** simple css injections **********/
-
-
 
 export function mouseOverReduceFontSize(_force_, _px_) {
   const css = _force_
@@ -76,8 +75,6 @@ export function mouseOverLineUnclamp(_force_) {
   applyStyles(css);
 }
 
-
-
 export function overloadLineHeight(_force_, _px_) {
   const css = _force_
     ? `
@@ -93,15 +90,15 @@ export function overloadLineHeight(_force_, _px_) {
   applyStyles(css);
 }
 
-
 export function overloadoutlineFontSize(_force_, _px_) {
-  const css = _force_ === true
-    ? `
+  const css =
+    _force_ === true
+      ? `
         div.sy__outline > div {
             font-size: ${_px_}px !important;
         }
         `
-    : `
+      : `
         div.sy__outline > div {
             font-size: ${_px_}px;
         }
@@ -302,6 +299,7 @@ export function addFrontLine(
                 }
                 
                 `;
+      break;
 
     case "4":
       css = `
@@ -334,25 +332,27 @@ export function addFrontLine(
 }
 
 export function mouseOverZeroPadding(_force_, _px_, _style_) {
+  console.log("aaaaa");
   switch (_style_) {
     case "1":
       const css_padding_toggle = _force_
-        ? `
-                  div.sy__outline .layout-tab-container .b3-list-item__toggle {
-                      transition: padding-left 0.2s ease;
-                  }
-                  div.sy__outline .layout-tab-container .b3-list-item:hover > .b3-list-item__toggle {
-                      padding-left: ${_px_}px !important;
-                  }
-                  `
-        : `
-                  div.sy__outline .layout-tab-container .b3-list-item__toggle {
-                      transition: padding-left 0.2s ease;
-                  }
-                  div.sy__outline .layout-tab-container .b3-list-item:hover > .b3-list-item__toggle {
-                      padding-left: ${_px_}px;
-                  }`;
+      ? `
+            div.sy__outline .layout-tab-container .b3-list-item__toggle {
+              transition: padding-left 0.2s ease;
+            }
+            div.sy__outline .layout-tab-container .b3-list-item:hover > .b3-list-item__toggle {
+              padding-left: ${_px_}px !important;
+            }
+            `
+      : `
+            div.sy__outline .layout-tab-container .b3-list-item__toggle {
+              transition: padding-left 0.2s ease;
+            }
+            div.sy__outline .layout-tab-container .b3-list-item:hover > .b3-list-item__toggle {
+              padding-left: ${_px_}px;
+            }`;
       applyStyles(css_padding_toggle);
+      console.log(css_padding_toggle);
       break;
 
     case "2":
@@ -376,15 +376,16 @@ export function mouseOverZeroPadding(_force_, _px_, _style_) {
 
       ///worker moving padding from toggle into icon
       function moving_padding_from_toggle_into_icon() {
-        var toggles = document.getElementsByClassName("div.sy__outline .b3-list-item__toggle");
+        var toggles = document.getElementsByClassName(
+          "div.sy__outline .b3-list-item__toggle"
+        );
         for (var i = 0; i < toggles.length; i++) {
           var paddingLeft = window
             .getComputedStyle(toggles[i], null)
             .getPropertyValue("padding-left");
-          var icon =
-            toggles[i].parentNode.getElementsByClassName(
-              "div.sy__outline .b3-list-item__icon"
-            )[0];
+          var icon = toggles[i].parentNode.getElementsByClassName(
+            "div.sy__outline .b3-list-item__icon"
+          )[0];
           if (icon && paddingLeft !== _px_ + "px") {
             icon.style.paddingLeft = paddingLeft;
             toggles[i].style.paddingLeft = _px_ + "px"; // 将 padding-left 设为 0
@@ -408,7 +409,9 @@ export function mouseOverZeroPadding(_force_, _px_, _style_) {
       ///worker moving left padding of toggle into right
 
       function moving_left_padding_into_right() {
-        var toggles = document.getElementsByClassName("div.sy__outline .b3-list-item__toggle");
+        var toggles = document.getElementsByClassName(
+          "div.sy__outline .b3-list-item__toggle"
+        );
         for (var i = 0; i < toggles.length; i++) {
           var paddingLeft = window
             .getComputedStyle(toggles[i], null)
@@ -468,19 +471,21 @@ export function mouseOverZeroPadding(_force_, _px_, _style_) {
                       padding-left: ${_px_}px;
                   }`;
       applyStyles(css_padding_text);
+      console.log(css_padding_text);
 
       /// worker padding text
 
       function moving_padding_from_toggle_into_text() {
-        var toggles = document.getElementsByClassName("div.sy__outline .b3-list-item__toggle");
+        var toggles = document.getElementsByClassName(
+          "div.sy__outline .b3-list-item__toggle"
+        );
         for (var i = 0; i < toggles.length; i++) {
           var paddingLeft = window
             .getComputedStyle(toggles[i], null)
             .getPropertyValue("padding-left");
-          var text =
-            toggles[i].parentNode.getElementsByClassName(
-              "div.sy__outline .b3-list-item__text"
-            )[0];
+          var text = toggles[i].parentNode.getElementsByClassName(
+            "div.sy__outline .b3-list-item__text"
+          )[0];
           if (text && paddingLeft !== _px_ + "px") {
             text.style.paddingLeft = paddingLeft;
             toggles[i].style.paddingLeft = _px_ + "px"; // 将 padding-left 设为 0

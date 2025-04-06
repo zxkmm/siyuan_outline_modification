@@ -1,10 +1,10 @@
 {
-  "name": "siyuan_outline_compress",
+  "name": "siyuan_outline_modification",
   "version": "0.4.4",
   "type": "module",
   "description": "fully customs your outline",
-  "repository": "https://github.com/zxkmm/siyuan_outline_compress",
-  "homepage": "https://github.com/zxkmm/siyuan_outline_compress",
+  "repository": "https://github.com/zxkmm/siyuan_outline_modification",
+  "homepage": "https://github.com/zxkmm/siyuan_outline_modification",
   "author": "zxkmm",
   "license": "MIT",
   "scripts": {

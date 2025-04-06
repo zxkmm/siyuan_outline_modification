@@ -1,7 +1,7 @@
 {
-  "name": "siyuan_outline_compress",
+  "name": "siyuan_outline_modification",
   "author": "zxkmm",
-  "url": "https://github.com/zxkmm/siyuan_outline_compress",
+  "url": "https://github.com/zxkmm/siyuan_outline_modification",
   "version": "0.4.4",
   "minAppVersion": "2.12.1",
   "backends": [
@@ -36,6 +36,6 @@
     ]
   },
   "keywords": [
-    "大纲", "压缩", "自定义", "compress", "outline", "modify", "zxkmm", "大纲压缩", "大纲自定义", "siyuan_outline_compress"
+    "大纲", "压缩", "自定义", "compress", "outline", "modify", "zxkmm", "大纲压缩", "大纲自定义", "siyuan_outline_modification"
   ]
 }

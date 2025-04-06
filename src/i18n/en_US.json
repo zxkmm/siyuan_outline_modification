@@ -17,7 +17,7 @@
 
 
   "hintTitle": "About<hr>",
-  "hintDesc": "<ul><li>● Made by <a href='https://github.com/zxkmm'>zxkmm</a>, open source under the MIT license.</li><li>● If you like this plugin, please light up the free star⭐ (Star) for my GitHub repository.</li><li>● Link: <a href='https://github.com/zxkmm/siyuan_outline_compress'>https://github.com/zxkmm/siyuan_outline_compress</a></li><li>",
+  "hintDesc": "<ul><li>● Made by <a href='https://github.com/zxkmm'>zxkmm</a>, open source under the MIT license.</li><li>● If you like this plugin, please light up the free star⭐ (Star) for my GitHub repository.</li><li>● Link: <a href='https://github.com/zxkmm/siyuan_outline_modification'>https://github.com/zxkmm/siyuan_outline_modification</a></li><li>",
   
   "experimentFeatureHintDesc": "(Maybe have compatible issue with 3rd party themes)",
   "experimentFeatureHintTitle": "<hr style='border: none; border-top: 3px solid;'>● Dynamic outline layout Options",
@@ -33,7 +33,7 @@
   "overloadFontSizePxDesc": "Must check the above switch to take effect",
  
   "mouseHoverZeroPadding": "Flow Layout of Document Tree Items when Mouse Hovering",
-  "mouseHoverZeroPaddingDesc": "Convenient for clicking and viewing titles. <br>  <a href=\"https://github.com/zxkmm/siyuan_outline_compress#what-is-flow-layout\">Read more details here</a>\n",
+  "mouseHoverZeroPaddingDesc": "Convenient for clicking and viewing titles. <br>  <a href=\"https://github.com/zxkmm/siyuan_outline_modification#what-is-flow-layout\">Read more details here</a>\n",
   "mouseHoverZeroPaddingForce": "Force Flow Layout Mode",
   "mouseHoverZeroPaddingForceDesc": "Enable when the above switch is not effective, and only effective when the previous switch is on",
   "mouseHoverZeroPaddingStyle": "Flow layout style",
@@ -94,6 +94,6 @@
 
 
   "beggingTitle": "🙏 Begging 🙏",
-  "beggingDesc": "This plugin is open source and free, so I need your encouragement.<br>If you like the features this plugin brings you, you can consider donating to help me with basic living expenses 🍚: <a href='https://pipe.b3log.org/blogs/zxkmm/articles/2025/02/08/1738993480704'>Donate</a>. (Donations won't unlock additional features)<br>If you're not financially comfortable, you can encourage me by giving a free ⭐ star to <a href='https://github.com/zxkmm/siyuan_outline_compress'>my GitHub repository</a>.<br>If you or someone you know needs my skills, feel free to hire me anytime."
+  "beggingDesc": "This plugin is open source and free, so I need your encouragement.<br>If you like the features this plugin brings you, you can consider donating to help me with basic living expenses 🍚: <a href='https://pipe.b3log.org/blogs/zxkmm/articles/2025/02/08/1738993480704'>Donate</a>. (Donations won't unlock additional features)<br>If you're not financially comfortable, you can encourage me by giving a free ⭐ star to <a href='https://github.com/zxkmm/siyuan_outline_modification'>my GitHub repository</a>.<br>If you or someone you know needs my skills, feel free to hire me anytime."
 
 }

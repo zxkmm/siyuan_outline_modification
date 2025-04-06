@@ -3,7 +3,7 @@
 ## 乞讨
 这款插件是开源免费的，因此我需要您的鼓励。  
 如果您喜欢这款插件为您带来的功能，您可以考虑捐款给我，帮助我解决温饱问题：[捐款](https://pipe.b3log.org/blogs/zxkmm/articles/2025/02/08/1738993480704)。（捐款不会解锁更多功能）  
-如果您经济不宽裕，您可以考虑给[我的GitHub仓库](https://github.com/zxkmm/siyuan_outline_compress)点一下免费的星星鼓励我。  
+如果您经济不宽裕，您可以考虑给[我的GitHub仓库](https://github.com/zxkmm/siyuan_outline_modification)点一下免费的星星鼓励我。  
 如果您认为您或者您认识的人需要我的技能，欢迎随时雇用我。  
 
 ## 功能
@@ -31,11 +31,11 @@
 ![static_area](https://tvax3.sinaimg.cn/large/0089YRx6gy1hlvq6uhx16j30z00oik89.jpg)   
 
 ## 链接
- - repo/Source Code：https://github.com/zxkmm/siyuan_outline_compress 
+ - repo/Source Code：https://github.com/zxkmm/siyuan_outline_modification 
 
- - Download：https://github.com/zxkmm/siyuan_outline_compress /releases or search `siyuan_outline_compress` in SiYuan market
+ - Download：https://github.com/zxkmm/siyuan_outline_modification /releases or search `siyuan_outline_modification` in SiYuan market
 
- - Reporting Bugs / Submitting Feqture request：https://github.com/zxkmm/siyuan_outline_compress /issues
+ - Reporting Bugs / Submitting Feqture request：https://github.com/zxkmm/siyuan_outline_modification /issues
 
  - Forum / thread (Chinese)：https://ld246.com/article/1705326690352 https://ld246.com/article/1705227991331
 

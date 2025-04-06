@@ -21,9 +21,9 @@ This makes it difficult or even impossible to click on multi-level subdirectorie
 ![static_area](https://tvax3.sinaimg.cn/large/0089YRx6gy1hlvq6uhx16j30z00oik89.jpg)
 
 ## Links
- - Repo/Source Code: https://github.com/zxkmm/siyuan_outline_compress 
- - Download: https://github.com/zxkmm/siyuan_outline_compress/releases or search `siyuan_outline_compress` in SiYuan market
- - Reporting Bugs / Submitting Feature Requests: https://github.com/zxkmm/siyuan_outline_compress/issues
+ - Repo/Source Code: https://github.com/zxkmm/siyuan_outline_modification 
+ - Download: https://github.com/zxkmm/siyuan_outline_modification/releases or search `siyuan_outline_modification` in SiYuan market
+ - Reporting Bugs / Submitting Feature Requests: https://github.com/zxkmm/siyuan_outline_modification/issues
  - Forum / Thread (Chinese): https://ld246.com/article/1705326690352 https://ld246.com/article/1705227991331
 
 # Credit
