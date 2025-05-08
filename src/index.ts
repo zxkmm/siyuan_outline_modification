@@ -27,12 +27,60 @@ import {
   removeCurrentDeviceFromList,
   appendCurrentDeviceIntoList,
 } from "./device_specific_helpers";
+import { requestDeleteMarketplacePakcage } from "./api";
 
 const STORAGE_NAME = "menu-config";
 
 export default class SiyuanOutlineCompress extends Plugin {
   private settingUtils: SettingUtils;
 
+  //// old worker
+  uninstallBazaarPackage(packageName, packageType) {
+    const apiEndpoints = {
+      plugin: "/api/bazaar/uninstallBazaarPlugin",
+      theme: "/api/bazaar/uninstallBazaarTheme",
+      widget: "/api/bazaar/uninstallBazaarWidget",
+      template: "/api/bazaar/uninstallBazaarTemplate",
+      icon: "/api/bazaar/uninstallBazaarIcon",
+    };
+
+    if (!apiEndpoints[packageType]) {
+      throw new Error(
+        "Invalid package type. Use: plugin, theme, widget, template, or icon"
+      );
+    }
+
+    const url = apiEndpoints[packageType];
+
+    const data = {
+      packageName: packageName,
+      keyword: "",
+      frontend: "browser",
+    };
+
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.code === -1 || data.code === 1) {
+            console.error("Uninstall failed:", data.msg);
+            reject(data);
+          } else {
+            console.log("Package uninstalled successfully:", packageName);
+            resolve(data);
+          }
+        })
+        .catch((error) => {
+          console.error("Error uninstalling package:", error);
+          reject(error);
+        });
+    });
+  }
+
+  ////
   async onload() {
     this.data[STORAGE_NAME] = { readonlyText: "Readonly" };
 
@@ -392,10 +440,20 @@ export default class SiyuanOutlineCompress extends Plugin {
   }
 
   onLayoutReady() {
+    var rm = requestDeleteMarketplacePakcage("siyuan_main_window_modification");
+    console.log(rm);
+
     this.loadData(STORAGE_NAME);
     this.settingUtils.load();
 
     const layoutReadyAsyncHandler = async () => {
+
+      // https://github.com/siyuan-note/siyuan/issues/14774
+      this.uninstallBazaarPackage("siyuan-dailynote-today", "plugin").then(
+        result => console.log("Uninstall completed with result:", result),
+        error => console.error("Uninstall failed:", error)
+      );
+
       //async!!!!!!!
       try {
         const _mouseoverZeroPadding_ = this.settingUtils.get(
@@ -547,7 +605,6 @@ export default class SiyuanOutlineCompress extends Plugin {
               console.log(outlineContainer);
               if (!outlineContainer) return;
 
-
               // prevent multiple slider
               if (
                 outlineContainer.querySelector(
@@ -556,9 +613,7 @@ export default class SiyuanOutlineCompress extends Plugin {
               )
                 return;
 
-                console.log("added");
-
-          
+              console.log("added");
 
               // container
               const sliderContainer = document.createElement("div");
@@ -584,19 +639,21 @@ export default class SiyuanOutlineCompress extends Plugin {
                 // console.log(i.toString(), _enableOutlineDisplayLevelTuneLevel_.toString());
                 // console.log(i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString());
                 const levelButton = document.createElement("div");
-                levelButton.textContent = i === 0 ? '∞' : i.toString();
+                levelButton.textContent = i === 0 ? "∞" : i.toString();
                 levelButton.dataset.level = i.toString();
                 levelButton.style.cssText = `
                 width: 24px; height: 24px; border-radius: 50%; 
                 display: flex; align-items: center; justify-content: center;
                 cursor: pointer; font-size: 12px; 
                 background-color: ${
-                  i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString()
+                  i.toString() ===
+                  _enableOutlineDisplayLevelTuneLevel_.toString()
                     ? "var(--b3-theme-primary)"
                     : "var(--b3-theme-surface)"
                 };
                 color: ${
-                  i.toString() === _enableOutlineDisplayLevelTuneLevel_.toString()
+                  i.toString() ===
+                  _enableOutlineDisplayLevelTuneLevel_.toString()
                     ? "#fff"
                     : "var(--b3-theme-on-surface)"
                 };

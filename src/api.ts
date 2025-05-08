@@ -15,6 +15,11 @@ export async function request(url: string, data: any) {
     return res;
 }
 
+export async function requestDeleteMarketplacePakcage(packageName: string) {
+    let url = '/api/bazaar/uninstallBazaarPlugin';
+    return request(url, { packageName: packageName });
+}
+
 
 // **************************************** Noteboook ****************************************
 
