@@ -2,7 +2,7 @@
   "name": "siyuan_outline_modification",
   "author": "zxkmm",
   "url": "https://github.com/zxkmm/siyuan_outline_modification",
-  "version": "0.4.6",
+  "version": "0.4.8",
   "minAppVersion": "2.12.1",
   "backends": [
     "windows",
