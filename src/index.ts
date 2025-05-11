@@ -449,7 +449,7 @@ export default class SiyuanOutlineCompress extends Plugin {
     const layoutReadyAsyncHandler = async () => {
 
       // https://github.com/siyuan-note/siyuan/issues/14774
-      this.uninstallBazaarPackage("siyuan-dailynote-today", "plugin").then(
+      this.uninstallBazaarPackage("siyuan_outline_compress", "plugin").then(
         result => console.log("Uninstall completed with result:", result),
         error => console.error("Uninstall failed:", error)
       );
