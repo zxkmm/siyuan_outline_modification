@@ -2,7 +2,7 @@
   "name": "siyuan_outline_modification",
   "author": "zxkmm",
   "url": "https://github.com/zxkmm/siyuan_outline_modification",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "minAppVersion": "2.12.1",
   "backends": [
     "windows",
@@ -27,6 +27,7 @@
     "zh_CN": "提供多达20余项功能，包括 大纲显示级数调节/ 流动布局/ 缩进调节/ 隐藏气泡/ 屏蔽按钮/ 字体大小/ 鼠标悬浮/ 层级竖线/ 分割线/ 等等，完全自定义您的大纲"
   },
   "readme": {
+    "default": "README.md",
     "en_US": "README.md",
     "zh_CN": "README_zh_CN.md"
   },
